@@ -1,7 +1,15 @@
+package com.company;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Recursao {
     public static void main(String[] args) {
 
-        System.out.println(Recursao.convBase2(5));
+        ArrayList<Integer> teste = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 5, 8, 13, 21));
+        System.out.println(Recursao.findBiggest(teste));
+
     }
 
     public static int fatorial(int n) {
@@ -9,14 +17,14 @@ public class Recursao {
             throw new IllegalArgumentException();
         }
         if (n == 0 || n == 1) {
-            return 1
+            return 1;
         }
         return n * fatorial(n - 1);
     }
 
     public static int somatorio(int n) {
         if (n == 0) {
-            return 0
+            return 0;
         }
         if (n == 1) {
             return 1;
@@ -66,7 +74,7 @@ public class Recursao {
         }
     }
 
-    public static int somatorioElementos(ArrayList arrayList) {
+    public static int somatorioElementos(ArrayList<Integer> arrayList) {
         if (arrayList == null) {
             throw new IllegalArgumentException();
         }
@@ -76,28 +84,28 @@ public class Recursao {
         if (arrayList.size() == 1) {
             return arrayList.get(0);
         }
-        return arrayList.get(0) + arrayList.subList(1, arrayList.size() - 1);
+        return arrayList.get(0) + somatorioElementos((ArrayList<Integer>) arrayList.subList(1, arrayList.size()));
     }
 
-    public static int findBiggest(Arraylist arraylist) {
-        if (arrayList == null || arrayList.size() == 0) {
+    public static int findBiggest(ArrayList<Integer> arraylist) {
+        if (arraylist == null || arraylist.size() == 0) {
             throw new IllegalArgumentException();
         }
-        return findBiggest2(arraylist).get(0);
+        return (int) findBiggest2(arraylist).get(0);
     }
 
-    public static ArrayList findBiggest2(Arraylist arraylist) {
+    public static List<Integer> findBiggest2(List<Integer> arrayList) {
         if (arrayList.size() == 1) {
-            return arrayList.get(0);
+            return arrayList;
         }
 
-        if (arraylist.get(0) > arraylist.get(1)) {
-            int elementoSalvo = arraylist.get(0);
-            ArrayList arrayListNovo = arraylist.subList(1, arraylist.size() - 1);
+        if (arrayList.get(0) > arrayList.get(1)) {
+            int elementoSalvo = arrayList.get(0);
+            List<Integer> arrayListNovo = arrayList.subList(1, arrayList.size());
             arrayListNovo.set(0, elementoSalvo);
-            return arrayListNovo;
+            return findBiggest2(arrayListNovo);
         }
-        return arraylist.subList(1, arraylist.size() - 1);
+        return findBiggest2(arrayList.subList(1, arrayList.size()));
     }
 
     public static String convBase2(int n) {
@@ -105,10 +113,10 @@ public class Recursao {
             throw new IllegalArgumentException();
         }
         if (n == 0) {
-            return 0;
+            return "0";
         }
         if (n == 1) {
-            return 1;
+            return "1";
         }
         return convBase2(n / 2) + (n % 2);
     }
