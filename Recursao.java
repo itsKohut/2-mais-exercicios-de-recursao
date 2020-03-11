@@ -12,6 +12,9 @@ public class Recursao {
 
     }
 
+    /**
+     * Modele e implemente um método recursivo que calcule o fatorial de um número n passado como parâmetro.
+     */
     public static int fatorial(int n) {
         if (n < 0) {
             throw new IllegalArgumentException();
@@ -22,6 +25,9 @@ public class Recursao {
         return n * fatorial(n - 1);
     }
 
+    /**
+     * Modele e implemente um método recursivo que calcule o somatório de um número n (passado como parâmetro) até 0.
+     */
     public static int somatorio(int n) {
         if (n == 0) {
             return 0;
@@ -36,6 +42,9 @@ public class Recursao {
         return n + somatorio(n - 1);
     }
 
+    /**
+     * Modele e implemente um método recursivo que calcule o n-ésimo número da sequência de fibonacci.
+     */
     public static int fib(int n) {
         if (n < 0 || n == 0) {
             throw new IllegalArgumentException();
@@ -47,6 +56,10 @@ public class Recursao {
         return fib(n - 1) + fib(n - 2);
     }
 
+    /**
+     * Modele e implemente um método recursivo que calcule o somatório dos números inteiros entre os números k e j,
+     * passados como parâmetro.
+     */
     public static int somaSucessiva(int k, int j) {
         if (k == j) {
             return k;
@@ -57,6 +70,10 @@ public class Recursao {
         return k + somaSucessiva(k + 1, j);
     }
 
+    /**
+     * Modele e implemente um método recursivo que recebe um String em retorna true se este String for um palíndrome,
+     * false caso contrário.
+     */
     public static boolean isPal(String palavra) {
         if (palavra.isEmpty() || palavra.length() == 1) {
             return true;
@@ -74,6 +91,10 @@ public class Recursao {
         }
     }
 
+    /**
+     * Modele e implemente um método recursivo que calcule o somatório dos números contidos em um ArrayList de inteiros,
+     * passado como parâmetro.
+     */
     public static int somatorioElementos(ArrayList<Integer> arrayList) {
         if (arrayList == null) {
             throw new IllegalArgumentException();
@@ -87,6 +108,9 @@ public class Recursao {
         return arrayList.get(0) + somatorioElementos((ArrayList<Integer>) arrayList.subList(1, arrayList.size()));
     }
 
+    /**
+     * Modele e implemente um método recursivo para encontrar o maior elemento de um ArrayList.
+     */
     public static int findBiggest(ArrayList<Integer> arraylist) {
         if (arraylist == null || arraylist.size() == 0) {
             throw new IllegalArgumentException();
@@ -108,6 +132,10 @@ public class Recursao {
         return findBiggest2(arrayList.subList(1, arrayList.size()));
     }
 
+    /**
+     * Modele e implemente um método recursivo que recebe um inteiro zero ou positivo e retorna um String com o
+     * número em binário.
+     */
     public static String convBase2(int n) {
         if (n < 0) {
             throw new IllegalArgumentException();
@@ -119,5 +147,12 @@ public class Recursao {
             return "1";
         }
         return convBase2(n / 2) + (n % 2);
+    }
+
+    /**
+     * Faça um método recursivo que determina o número de dígitos de um inteiro.
+     */
+    public static int nroDigit(int n) {
+        return 0;
     }
 }
