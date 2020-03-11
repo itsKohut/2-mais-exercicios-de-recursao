@@ -1,6 +1,7 @@
 public class Recursao {
     public static void main(String[] args) {
 
+        System.out.println(Recursao.convBase2(5));
     }
 
     public static int fatorial(int n) {
@@ -97,5 +98,18 @@ public class Recursao {
             return arrayListNovo;
         }
         return arraylist.subList(1, arraylist.size() - 1);
+    }
+
+    public static String convBase2(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException();
+        }
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        return convBase2(n / 2) + (n % 2);
     }
 }
